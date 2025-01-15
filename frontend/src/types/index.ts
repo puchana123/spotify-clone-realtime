@@ -1,13 +1,13 @@
 export interface Song {
     _id: string;
-    tiltle: string;
+    title: string;
     artist: string;
     albumId: string|null;
     imageUrl: string;
     audioUrl: string;
     duration: number;
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt: string;
+    updatedAt: string;
 }
 
 export interface Album {
