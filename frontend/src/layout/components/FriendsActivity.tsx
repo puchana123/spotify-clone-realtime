@@ -6,7 +6,7 @@ import { HeadphonesIcon, Music, Users } from "lucide-react";
 import { useEffect } from "react";
 
 const FriendsActivity = () => {
-    const { users, fetchUsers} = useChatStore();
+    const { users, fetchUsers } = useChatStore();
     const { user } = useUser();
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const FriendsActivity = () => {
         <div className="h-full bg-zinc-900 rounded-lg flex flex-col">
             <div className="p-4 flex justify-between items-center border-b border-zinc-800">
                 <div className="flex items-center gap-2">
-                    <Users className="size-5 shrink-0" /> 
+                    <Users className="size-5 shrink-0" />
                     <h2 className="font-semibold">What they're listening to</h2>
                 </div>
             </div>
@@ -47,8 +47,8 @@ const FriendsActivity = () => {
 
                                         {isPlaying && <Music className="size-3.5 text-emerald-400 shrink-0" />}
                                     </div>
-                                    
-                                    {isPlaying? (
+
+                                    {isPlaying ? (
                                         <div className="mt-1">
                                             <div className="mt-1 text-sm text-white font-medium truncate">
                                                 Cardigan
@@ -57,14 +57,14 @@ const FriendsActivity = () => {
                                                 by Taylor Swift
                                             </div>
                                         </div>
-                                    ):(
+                                    ) : (
                                         <div className="mt-1 text-xs text-zinc-400">Idle</div>
                                     )}
                                 </div>
                             </div>
                         </div>
                     ))}
-                        
+
                 </div>
             </ScrollArea>
         </div>
