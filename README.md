@@ -1,6 +1,6 @@
 # The Spotify Clone with realtime chat
 credit from *[As a Programmer](https://youtu.be/4sbklcQ0EXc?si=yKSGvus3vJHgFX6R)*
-**Tech Stack**
+### **Tech Stack**
 Frontend:
 - React.js: Frontend framework/library for building user interfaces.
 - TypeScript: Superset of JavaScript for adding static typing.
