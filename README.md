@@ -22,3 +22,5 @@ credit from *[As a Programmer](https://youtu.be/4sbklcQ0EXc?si=yKSGvus3vJHgFX6R)
 - clerk: User authentication and management library.
 ### Cloud Services:
 - cloudinary: Cloud-based service for managing and delivering images and videos.
+## Test Deployed
+Render.com [first deployed web](https://spotify-clone-realtime.onrender.com)
