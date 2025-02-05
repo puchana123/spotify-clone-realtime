@@ -13,7 +13,7 @@ import albumRoutes from "./routes/album.route.js";
 import statRoutes from "./routes/stat.route.js";
 import { connectDB } from "./lib/db.js";
 import { createServer } from "http";
-import { initializeSocketIO } from "./lib/socket.js";
+import { initializeSocket } from "./lib/socket.js";
 
 dotenv.config();
 
@@ -22,7 +22,7 @@ const app = express();
 const PORT = process.env.PORT;
 
 const httpServer = createServer(app);
-initializeSocketIO(httpServer);
+initializeSocket(httpServer);
 
 // Middleware
 app.use(cors({
@@ -38,15 +38,6 @@ app.use(fileUpload({
     createParentPath: true,
     limits: { fileSize: 10 * 1024 * 1024 }, // Max size = 10MB
 }));
-
-// Logging middleware to track requests and responses
-app.use((req, res, next) => {
-    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-    res.on("finish", () => {
-        console.log(`[${new Date().toISOString()}] Response sent with status: ${res.statusCode}`);
-    });
-    next();
-});
 
 // Routes
 app.use("/api/users", userRoutes);

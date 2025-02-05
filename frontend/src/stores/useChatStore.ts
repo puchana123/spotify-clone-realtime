@@ -32,7 +32,7 @@ export const useChatStore = create<ChatStore>((set, get) => ({
     users: [],
     isLoading: false,
     error: null,
-    socket: null,
+    socket: socket,
     isConnected: false,
     onlineUsers: new Set(),
     userActivities: new Map(),
@@ -56,6 +56,7 @@ export const useChatStore = create<ChatStore>((set, get) => ({
         if (!get().isConnected) {
             socket.auth = { userId };
             socket.connect();
+
             socket.emit("user_connected", userId);
             // Update online users
             socket.on("users_online", (users: string[]) => {
@@ -94,7 +95,7 @@ export const useChatStore = create<ChatStore>((set, get) => ({
             });
 
             // Update this user activity
-            socket.on("activity_updated", (userId: string, activity: string) => {
+            socket.on("activity_updated", ({ userId, activity }) => {
                 set((state) => {
                     const newActivities = new Map(state.userActivities);
                     newActivities.set(userId, activity);
